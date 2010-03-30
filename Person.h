@@ -1,3 +1,6 @@
+/* Biographical Dictionary - CMPT 212 Final Project - SFU Spring 2010
+   Alex Antonio alex_antonio@sfu.ca      Jeff Harris jwh4@sfu.ca   */
+
 #pragma once
 
 #include <string>
@@ -32,7 +35,3 @@ private:
 	string title;
 	string biography;
 };
-/*
-  TO DO
-    * Overloaded comparison operators based on {last name, first name} where for example Adam Smith would be less than Patti Smith but greater than Winston Churchill.
-    * Constructors and destructors as required*/

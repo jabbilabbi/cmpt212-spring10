@@ -1,3 +1,6 @@
+/* Biographical Dictionary - CMPT 212 Final Project - SFU Spring 2010
+   Alex Antonio alex_antonio@sfu.ca      Jeff Harris jwh4@sfu.ca   */
+
 #include "Person.h"
 
 Person::Person(void)
