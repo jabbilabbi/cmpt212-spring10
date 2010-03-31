@@ -3,19 +3,30 @@
 
 // BioDictionary1.cpp : Defines the entry point for the console application.
 //
+
 #include "Person.h"
 #include "Author.h"
-#include "Parser.cpp"
+//#include "Parser.cpp"
 #include "PLData.h"
 #include <iostream>
 #include <set>
 #include <vector>
+
+Person parsePerson(char* str);
 
 int main()
 {
 
 	set<PLData> masterList;
 	
+	Person* guy3;
+
+	//guy3 = 
+	//PLData someone = 
+		cout<<parsePerson("Grace#Slick#1939#American#singer#The lead singer of Jefferson Airplane").display()<<endl;
+		//guy3 = someone.person;
+	//cout<<&guy3->display()<<endl<<endl;
+	//cout<<someone.person->display()<<endl;
 
 	Person guy;
 	guy.setBiography("The leader of Great Britan during the second World War.");
@@ -29,9 +40,9 @@ int main()
 	PLData p;
 	p.person = &guy;
 	p.labels = lab;
-	//masterList.insert(p);
+	masterList.insert(p);
 
-	cout<<p.person->display()<<endl;
+	cout<<p.person->display()<<endl<<endl;
 
 	Author guy2;
 	guy2.setBiography("A guy.");
