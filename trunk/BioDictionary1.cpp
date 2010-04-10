@@ -1,8 +1,6 @@
 /* Biographical Dictionary - CMPT 212 Final Project - SFU Spring 2010
    Alex Antonio alex_antonio@sfu.ca      Jeff Harris jwh4@sfu.ca   */
 
-// BioDictionary1.cpp : Defines the entry point for the console application.
-//
 
 #include "Person.h"
 #include "Author.h"
@@ -12,21 +10,26 @@
 #include <set>
 #include <vector>
 
-Person parsePerson(char* str);
+bool openFile(string fileName);
+void closeFile();
+Person *parsePerson(char* str, Person *person, vector<string> *labels);
+set<PLData> *parse(set<PLData> *dictionary);
 
 int main()
 {
 
 	set<PLData> masterList;
 	
-	Person* guy3;
+	cout<<openFile("H:\\list.txt")<<endl;
+	parse(&masterList);
 
-	//guy3 = 
-	//PLData someone = 
-		cout<<parsePerson("Grace#Slick#1939#American#singer#The lead singer of Jefferson Airplane").display()<<endl;
-		//guy3 = someone.person;
-	//cout<<&guy3->display()<<endl<<endl;
-	//cout<<someone.person->display()<<endl;
+	Person *grace = new Person;
+	vector<string> labels;
+	parsePerson("Grace#Slick#1939#American#singer#The lead singer of Jefferson Airplane.#Singer#Band#Label3", grace, &labels);
+	cout<<labels[2];
+
+	cout<<grace->display()<<endl<<endl;
+
 
 	Person guy;
 	guy.setBiography("The leader of Great Britan during the second World War.");
