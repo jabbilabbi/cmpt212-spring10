@@ -26,7 +26,10 @@ string Author::display()
 {
 	/* Returns a string displaying information about the author,
 	   and the authors book list */
-	return Person::display() + " Books: " + listBooks(0);
+	if(bookList.size() > 0) //Only print books if there are some to print.
+		return Person::display() + " Books: " + listBooks(0);
+	else
+		return Person::display();
 }
 
 void Author::addBook(string book){
@@ -54,4 +57,15 @@ void Author::changeBook(string book1, string book2){
 		}
 		location++;
 	}
+}
+
+vector<string> Author::getBooks(){
+	return bookList;
+}
+
+bool Author::author(){
+	if(Author::bookList.size() > 0)
+		return true;
+	else
+		return false;
 }

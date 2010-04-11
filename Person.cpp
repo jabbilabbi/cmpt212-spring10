@@ -79,7 +79,7 @@ string Person::display()
 	char* year = new char(4*sizeof(char));
 	itoa(date, year, 10); //Convert the date (int type) to string.
 
-	return (firstName+" "+lastName+" ("+year+"). "+nationality+" "+title+". "+biography);
+	return (firstName+" "+lastName+" ("+year+"). "+nationality+" "+title+". "+biography+".");
 }
 
 bool Person::operator<(const Person & a) const
@@ -105,4 +105,8 @@ bool Person::operator>(const Person & a) const
 		return true;
 	else 
 		return false;
+}
+
+bool Person::author(){
+	return false;
 }
