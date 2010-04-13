@@ -14,6 +14,7 @@
 set<PLData> *parse(set<PLData> *dictionary,  vector<string> *labelList, string fileName);
 bool saveFile(set<PLData> *dictionary, vector<string> *labelList, string fileName);
 void addPerson(set<PLData> *dict, Person *per, vector<string> lab);
+void addLabelDefaults(set<PLData> *list, vector<string> *labels);
 
 int main()
 {
@@ -22,18 +23,23 @@ int main()
 	vector<string> *labels = new vector<string>;
 	
 	masterList=parse(masterList,labels, "H:\\list.txt");
+	
+	addLabelDefaults(masterList, labels);
 
 	set<PLData>::iterator iter;
 	
 	for(iter = masterList->begin(); iter != masterList->end(); iter++){
-		cout<< iter->person->display() <<endl<<endl;
-
+		cout<< iter->person->display();
+		cout<< " "<<iter->labels[0]<<endl<<endl;
 		iter->labels.size();
 		iter->person->author();
 
 		//cout<<iter->person->getBooks()[0];
 		
 	}
+
+	for(int i = 0; i < labels->size(); i++)
+		cout<<" Label: "<<labels->at(i)<<endl;
 
 	saveFile(masterList,labels, "H:\\newList.txt");
 

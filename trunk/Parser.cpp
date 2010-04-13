@@ -16,7 +16,8 @@ using namespace std;
 #define MAX_LINE_LENGTH 5000
 
 /* The parser is responsible for opening a file, reading its contents into a PLData set
-	It is also responsible for writing a PLData set into a file						*/
+	It is also responsible for writing a PLData set into a file.
+	This file also has functions for adding/removing and setting default labels*/
 
 bool openFile(string fileName, fstream *file, bool write){
 	if(write)
@@ -88,10 +89,10 @@ Person *parsePerson(char *str, Person *person, vector<string> *labels){
 	result.assign(temp);
 	person->setBiography(result);
 	
-	for(;pos < MAX_LINE_LENGTH-1 && str[pos-1] != '\0';){ //If not less then 255 the line has ended.
+	for(;pos < MAX_LINE_LENGTH-1 && str[pos-1] != '\0'; pos = findNext(str,pos)+1){ //If not less then 255 the line has ended.
 		temp = copySub(str, pos, findNext(str,pos));
 		labels->push_back(temp);
-		pos = findNext(str,pos)+1;	
+			
 		if(str[pos-1] == '\0')
 			break;
 	}
@@ -118,6 +119,55 @@ void sortLabels(vector<string> *labels){
 				labels->at(j) = tmp;
 			}
 		}
+	}
+}
+
+void removeLabel(PLData *person, string label){
+	//Takes a person and removes the label from the persons label list.
+	for(int i = 0; i < person->labels.size(); i++){
+		if(label.compare(person->labels[i]) == 0)
+			person->labels.erase(person->labels.begin()+i); //if the person has this label, remove it
+	}
+}
+
+void newLabel(vector<string> *labels, string label){
+	bool exists = false;
+	for(int i = 0; i < labels->size(); i++){
+		if(label.compare(labels->at(i)) == 0)
+			exists = true; //if the person has this label do not add the label
+	}
+	if(!exists){
+		labels->push_back(label);
+	}
+}
+
+vector<string> addLabel(vector<string> labels, vector<string> *masterLabels, string label){
+	//Checks if the person has the label we wish to add. If it does not then it is added.
+	bool personHasLabel = false;
+	for(int i = 0; i < labels.size(); i++){
+		if(label.compare(labels[i]) == 0)
+			personHasLabel = true; //if the person has this label do not add the label
+	}
+	if(!personHasLabel){
+		labels.push_back(label);
+	}
+	
+	newLabel(masterLabels, label);
+
+	return labels;
+}
+
+void addLabel(PLData *person, vector<string> *labelList, string label){
+		person->labels = addLabel(person->labels, labelList, label);
+}
+
+void addLabelDefaults(set<PLData> *list, vector<string> *labels){
+	//Adds default labels based on the peoples titles.
+	
+	set<PLData>::iterator iter;
+	
+	for(iter = list->begin(); iter != list->end(); iter++){
+		iter->labels = addLabel(iter->labels, labels, iter->person->getTitle());
 	}
 }
 
