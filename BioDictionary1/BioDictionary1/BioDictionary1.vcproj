@@ -221,10 +221,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\cmpt212-spring10\PLData.h"
-				>
-			</File>
-			<File
 				RelativePath=".\stdafx.h"
 				>
 			</File>

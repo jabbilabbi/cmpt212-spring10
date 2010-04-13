@@ -1,5 +1,6 @@
 #include <vector>
 #include "Person.h"
+#include <string>
 
 #pragma once
 
@@ -11,4 +12,5 @@ public:
 	Person *person;
 	vector<string> labels;
 	bool operator<(const PLData & a) const; //Only partially implemented
+	bool operator>(const PLData & b) const;
 };
