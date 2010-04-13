@@ -13,25 +13,25 @@ PLData::~PLData(void)
 
 bool PLData::operator < (const PLData & a) const
 {
-	//if(strcmp(person->lastName.c_str(), a.person->lastName.c_str()) < 0)
-	//	return true;
-	/*else if(strcmp(person->lastName.c_str(), a.person->lastName.c_str()) > 0)
-		return false;
-	else if(strcmp(person->firstName.c_str(), a.person->firstName.c_str()) < 0) //If last names are equal, check first name
+	if(strcmp(person->getLastName().c_str(), a.person->getLastName().c_str()) < 0)
 		return true;
-	*///else 
+	else if(strcmp(person->getLastName().c_str(), a.person->getLastName().c_str()) > 0)
+		return false;
+	else if(strcmp(person->getFirstName().c_str(), a.person->getFirstName().c_str()) < 0) //If last names are equal, check first name
+		return true;
+	else 
 		return false;
 }
 
 bool PLData::operator > (const PLData & b) const
 {
 	
-	//if(strcmp(person->lastName.c_str(), a.person->lastName.c_str()) > 0)
-	//	return true;
-	/*else if(strcmp(person->lastName.c_str(), a.person->lastName.c_str()) < 0)
-		return false;
-	else if(strcmp(person->firstName.c_str(), a.person->firstName.c_str()) > 0) //If last names are equal, check first name
+	if(strcmp(person->getLastName().c_str(), b.person->getLastName().c_str()) > 0)
 		return true;
-	*///else 
+	else if(strcmp(person->getLastName().c_str(), b.person->getLastName().c_str()) < 0)
+		return false;
+	else if(strcmp(person->getFirstName().c_str(), b.person->getFirstName().c_str()) > 0) //If last names are equal, check first name
+		return true;
+	else 
 		return false;
 }

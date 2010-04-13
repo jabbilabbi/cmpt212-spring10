@@ -25,6 +25,7 @@ public:
 	void setBiography(string newBiography);
 	string getBiography();
 	virtual string display();
+	virtual bool author();
 	bool operator<(const Person & a) const; 
 	bool operator>(const Person & a) const;
 private:

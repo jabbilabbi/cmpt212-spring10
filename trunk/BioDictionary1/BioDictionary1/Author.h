@@ -15,6 +15,8 @@ public:
 	void addBook(string book);
 	void removeBook(string book);
 	void changeBook(string book1, string book2);
+	vector<string> getBooks(); 
+	virtual bool author();
 private:
 	vector<string> bookList;
 	string listBooks(int index);
