@@ -46,6 +46,8 @@ public:
 	afx_msg void OnLbnSelchangeList1();
 public:
 	CListBox m_label_listbox;
+public:
+	afx_msg void OnAddPeople();
 };
 
 #ifndef _DEBUG  // debug version in form_testView.cpp
