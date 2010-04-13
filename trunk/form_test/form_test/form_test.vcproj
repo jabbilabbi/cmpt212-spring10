@@ -48,7 +48,7 @@
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
-				UsePrecompiledHeader="2"
+				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
 				DebugInformationFormat="4"
@@ -192,7 +192,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\FORM.cpp"
+				RelativePath=".\Author.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\BioDictionary1.cpp"
 				>
 			</File>
 			<File
@@ -213,6 +217,18 @@
 			</File>
 			<File
 				RelativePath=".\MainFrm.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Parser.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Person.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PLData.cpp"
 				>
 			</File>
 			<File
@@ -242,7 +258,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\FORM.h"
+				RelativePath=".\Author.h"
 				>
 			</File>
 			<File
@@ -263,6 +279,14 @@
 			</File>
 			<File
 				RelativePath=".\MainFrm.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Person.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PLData.h"
 				>
 			</File>
 			<File

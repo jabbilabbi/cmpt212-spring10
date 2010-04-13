@@ -18,6 +18,7 @@ IMPLEMENT_DYNCREATE(Cform_testView, CFormView)
 
 BEGIN_MESSAGE_MAP(Cform_testView, CFormView)
 	ON_LBN_SELCHANGE(IDC_LIST1, &Cform_testView::OnLbnSelchangeList1)
+	ON_COMMAND(ID_ADD_PEOPLE, &Cform_testView::OnAddPeople)
 END_MESSAGE_MAP()
 
 // Cform_testView construction/destruction
@@ -84,4 +85,10 @@ Cform_testDoc* Cform_testView::GetDocument() const // non-debug version is inlin
 void Cform_testView::OnLbnSelchangeList1()
 {
 	// TODO: Add your control notification handler code here
+}
+
+void Cform_testView::OnAddPeople()
+{
+	 CDialog testDlg(IDD_ADDPERSON);
+	 testDlg.DoModal();
 }
