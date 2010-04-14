@@ -112,6 +112,8 @@ Cform_testDoc* Cform_testView::GetDocument() const // non-debug version is inlin
 
 
 // Cform_testView message handlers
+void addLabelDefaults(set<PLData> *list, vector<string> *labels);
+void addPerson(set<PLData> *dict, Person *per, vector<string> lab);
 
 void Cform_testView::OnLbnSelchangeList1()
 {
@@ -120,26 +122,34 @@ void Cform_testView::OnLbnSelchangeList1()
 	index = m_label_listbox.GetCurSel();
 	m_label_listbox.GetText(index, strText);
 
-	MessageBox(strText);
+	//MessageBox(strText);
 	
 	set<PLData>::iterator iter;
 	m_person_listbox.ResetContent();
+//addLabelDefaults(masterList, labels);
+
 
 	for(iter = masterList->begin(); iter != masterList->end(); iter++){
 		
 		
 		string s;
 		stringstream out;
-		out << iter->labels.size();
+		//out << iter->labels.size();
+		if(iter->labels.size() > 0)
+			out<<iter->person->display();
 		s = out.str();
-
-		MessageBox(strToCStr(s));
-		for (int i =0; i < iter->labels.size(); i++){
-			if (iter->labels.at(i).compare(cStrToStr(strText)) == 0){
-				m_person_listbox.AddString(strToCStr(iter->person->getFirstName() + " " + iter->person->getLastName()));
-					MessageBox(_T("Label matches!!"));
-			} else {
-MessageBox(_T("She no match!"));
+		
+		//MessageBox(strToCStr(s));
+		if(cStrToStr(strText).compare("ALL")==0){
+			m_person_listbox.AddString(strToCStr(iter->person->getFirstName() + " " + iter->person->getLastName()));
+		}else{
+			for (int i =0; i < iter->labels.size(); i++){
+				if (iter->labels.at(i).compare(cStrToStr(strText)) == 0){
+					m_person_listbox.AddString(strToCStr(iter->person->getFirstName() + " " + iter->person->getLastName()));
+						//MessageBox(_T("Label matches!!"));
+				} else {
+	//MessageBox(_T("She no match!"));
+				}
 			}
 		}
 	}
@@ -157,16 +167,26 @@ void Cform_testView::OnFileSave()
 
 void Cform_testView::OnFileOpen()
 {
-	CFileDialog FileDlg(FALSE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
+	CFileDialog FileDlg(TRUE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
 	FileDlg.DoModal();
 
     fname = FileDlg.GetFileName();
 	string s =cStrToStr(fname);
 	//const char* s1 = s.c_str();
 	//MessageBox(_T((s)));
+
+	//THIS IS NOT WORKING CURRENTLY!! CString newCS = s.c_str();
+//masterList = new set<PLData>;
+//labels = new vector<string>;
 	masterList=parse(masterList,labels, s);
-	CString first = strToCStr(labels->at(0));
+		Person *guy = new Person;
+	
+		//addLabelDefaults(masterList, labels);
+
+
+	//CString first = strToCStr(labels->at(0));
 	//MessageBox(first);
+	m_label_listbox.AddString(strToCStr("ALL"));
 	for (int i =0; i<labels->size(); i++){
 		m_label_listbox.AddString(strToCStr(labels->at(i)));
 	}

@@ -247,7 +247,10 @@ bool saveFile(set<PLData> *dictionary, vector<string> *labelList, string fileNam
 		string line;
 		line+= iter->person->getFirstName() + "#";
 		line+= iter->person->getLastName() + "#";
-		line+= iter->person->getDate() + "#";
+		char * str = (char*)malloc(sizeof(char)*4);
+		itoa(iter->person->getDate(), str, 10);
+		line+= str;
+		line+= "#";
 		line+= iter->person->getNationality() + "#";
 		line+= iter->person->getTitle() + "#";
 		line+= iter->person->getBiography();
