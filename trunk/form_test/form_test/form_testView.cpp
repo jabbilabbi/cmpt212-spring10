@@ -19,6 +19,7 @@ IMPLEMENT_DYNCREATE(Cform_testView, CFormView)
 BEGIN_MESSAGE_MAP(Cform_testView, CFormView)
 	ON_LBN_SELCHANGE(IDC_LIST1, &Cform_testView::OnLbnSelchangeList1)
 	ON_COMMAND(ID_ADD_PEOPLE, &Cform_testView::OnAddPeople)
+	ON_COMMAND(ID_FILE_SAVE, &Cform_testView::OnFileSave)
 END_MESSAGE_MAP()
 
 // Cform_testView construction/destruction
@@ -91,4 +92,18 @@ void Cform_testView::OnAddPeople()
 {
 	 CDialog testDlg(IDD_ADDPERSON);
 	 testDlg.DoModal();
+}
+
+void Cform_testView::OnFileSave()
+{
+		// TODO: Add your control notification handler code here
+	//this->UpdateData();
+
+
+
+	CFileDialog FileDlg(FALSE, _T".txt", NULL, 0, _T"Text Files (*.txt)|*.txt|All Files (*.*)|*.*||");
+	FileDlg.DoModal();
+
+
+
 }
