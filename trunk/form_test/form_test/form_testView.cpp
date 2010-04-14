@@ -3,15 +3,19 @@
 
 #include "stdafx.h"
 #include "form_test.h"
-
+#include "PLData.h"
 #include "form_testDoc.h"
 #include "form_testView.h"
+#include <set>
+#include <vector>
+#include <string>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-
+using namespace std;
+set<PLData> *parse(set<PLData> *dictionary,  vector<string> *labelList, string fileName);
 // Cform_testView
 
 IMPLEMENT_DYNCREATE(Cform_testView, CFormView)
@@ -104,6 +108,19 @@ void Cform_testView::OnFileSave()
 	CFileDialog FileDlg(FALSE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
 	FileDlg.DoModal();
 
-
-
+	set<PLData> *masterList = new set<PLData>;
+	vector<string> *labels = new vector<string>;
+    CString fname = FileDlg.GetFileName();
+	string s;
+	for (int i = 0; i<fname.GetLength(); i++){
+		s+=fname.GetAt(i);
+	}
+	//const char* s1 = s.c_str();
+	//MessageBox(_T((s)));
+	masterList=parse(masterList,labels, s);
+	CString first;
+	for (int i = 0; i<labels->at(0).length(); i++){
+		first += labels->at(0)[i];
+	}
+	MessageBox(first);
 }
