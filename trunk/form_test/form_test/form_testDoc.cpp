@@ -5,12 +5,18 @@
 #include "form_test.h"
 
 #include "form_testDoc.h"
-
+#include <string>
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-
-
+using namespace std;
+CString strToCStr1(string s){
+	CString cstring;
+	for (int i = 0; i<s.length(); i++){
+		cstring += s[i];
+	}
+	return cstring;
+}
 // Cform_testDoc
 
 IMPLEMENT_DYNCREATE(Cform_testDoc, CDocument)
@@ -33,6 +39,7 @@ Cform_testDoc::~Cform_testDoc()
 
 BOOL Cform_testDoc::OnNewDocument()
 {
+	CDocument::SetTitle(strToCStr1("Bio Dictionary"));
 	if (!CDocument::OnNewDocument())
 		return FALSE;
 
