@@ -101,7 +101,7 @@ void Cform_testView::OnFileSave()
 
 
 
-	CFileDialog FileDlg(FALSE, _T".txt", NULL, 0, _T"Text Files (*.txt)|*.txt|All Files (*.*)|*.*||");
+	CFileDialog FileDlg(FALSE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
 	FileDlg.DoModal();
 
 
