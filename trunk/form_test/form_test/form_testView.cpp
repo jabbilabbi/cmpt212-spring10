@@ -17,9 +17,11 @@
 
 using namespace std;
 set<PLData> *parse(set<PLData> *dictionary,  vector<string> *labelList, string fileName);
+bool saveFile(set<PLData> *dictionary, vector<string> *labelList, string fileName);
 // Cform_testView
 set<PLData> *masterList = new set<PLData>;
 vector<string> *labels = new vector<string>;
+CString fname;
 
 IMPLEMENT_DYNCREATE(Cform_testView, CFormView)
 
@@ -27,6 +29,10 @@ BEGIN_MESSAGE_MAP(Cform_testView, CFormView)
 	ON_LBN_SELCHANGE(IDC_LIST1, &Cform_testView::OnLbnSelchangeList1)
 	ON_COMMAND(ID_ADD_PEOPLE, &Cform_testView::OnAddPeople)
 	ON_COMMAND(ID_FILE_SAVE, &Cform_testView::OnFileSave)
+	ON_COMMAND(ID_FILE_OPEN, &Cform_testView::OnFileOpen)
+	ON_BN_CLICKED(IDOK, &Cform_testView::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON2, &Cform_testView::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON7, &Cform_testView::OnBnClickedButton7)
 END_MESSAGE_MAP()
 
 // Cform_testView construction/destruction
@@ -113,10 +119,14 @@ void Cform_testView::OnLbnSelchangeList1()
 	CString strText;
 	index = m_label_listbox.GetCurSel();
 	m_label_listbox.GetText(index, strText);
+
+	MessageBox(strText);
 	
 	set<PLData>::iterator iter;
-	
+	m_person_listbox.ResetContent();
+
 	for(iter = masterList->begin(); iter != masterList->end(); iter++){
+		
 		
 		string s;
 		stringstream out;
@@ -127,33 +137,30 @@ void Cform_testView::OnLbnSelchangeList1()
 		for (int i =0; i < iter->labels.size(); i++){
 			if (iter->labels.at(i).compare(cStrToStr(strText)) == 0){
 				m_person_listbox.AddString(strToCStr(iter->person->getFirstName() + " " + iter->person->getLastName()));
-					MessageBox(_T("hi"));
+					MessageBox(_T("Label matches!!"));
 			} else {
-MessageBox(_T("hi"));
+MessageBox(_T("She no match!"));
 			}
 		}
 	}
 }
 
-void Cform_testView::OnAddPeople()
-{
-	 CDialog testDlg(IDD_ADDPERSON);
-	 testDlg.DoModal();
-}
+
 
 
 
 void Cform_testView::OnFileSave()
 {
-		// TODO: Add your control notification handler code here
-	//this->UpdateData();
+		string s = cStrToStr(fname);
+		saveFile(masterList, labels, s);
+}
 
-
-
+void Cform_testView::OnFileOpen()
+{
 	CFileDialog FileDlg(FALSE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
 	FileDlg.DoModal();
 
-    CString fname = FileDlg.GetFileName();
+    fname = FileDlg.GetFileName();
 	string s =cStrToStr(fname);
 	//const char* s1 = s.c_str();
 	//MessageBox(_T((s)));
@@ -163,4 +170,28 @@ void Cform_testView::OnFileSave()
 	for (int i =0; i<labels->size(); i++){
 		m_label_listbox.AddString(strToCStr(labels->at(i)));
 	}
+}
+
+void Cform_testView::OnAddPeople()
+{
+	 CDialog testDlg(IDD_ADDPERSON);
+	 testDlg.DoModal();
+}
+
+void Cform_testView::OnBnClickedOk()
+{
+	MessageBox(fname);
+}
+
+
+void Cform_testView::OnBnClickedButton2()
+{
+	UpdateData(false);
+	MessageBox(_T("sup dawg"));
+	MessageBox(fname);
+}
+
+void Cform_testView::OnBnClickedButton7()
+{
+	MessageBox(_T("hi"));
 }

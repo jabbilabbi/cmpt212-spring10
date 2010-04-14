@@ -220,6 +220,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\newPerson.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Parser.cpp"
 				>
 			</File>
@@ -279,6 +283,10 @@
 			</File>
 			<File
 				RelativePath=".\MainFrm.h"
+				>
+			</File>
+			<File
+				RelativePath=".\newPerson.h"
 				>
 			</File>
 			<File

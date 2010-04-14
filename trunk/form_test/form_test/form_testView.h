@@ -52,6 +52,16 @@ public:
 	afx_msg void OnFileSave();
 public:
 	CListBox m_person_listbox;
+public:
+	afx_msg void OnFileOpen();
+public:
+	afx_msg void OnBnClickedOk();
+public:
+	afx_msg void OnBnClickedButton1();
+public:
+	afx_msg void OnBnClickedButton2();
+public:
+	afx_msg void OnBnClickedButton7();
 };
 
 #ifndef _DEBUG  // debug version in form_testView.cpp
