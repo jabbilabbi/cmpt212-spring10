@@ -129,7 +129,6 @@ void Cform_testView::OnLbnSelchangeList1()
 	m_person_listbox.ResetContent();
 //addLabelDefaults(masterList, labels);
 
-
 	for(iter = masterList->begin(); iter != masterList->end(); iter++){
 		
 		
@@ -168,12 +167,13 @@ void Cform_testView::OnFileSave()
 
 void Cform_testView::OnFileOpen()
 {
+	
 	CFileDialog FileDlg(TRUE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
 	FileDlg.DoModal();
-
+	
     fname = FileDlg.GetFileName();
 	string s =cStrToStr(fname);
-	//const char* s1 = s.c_str();
+	const char* s1 = s.c_str();
 	//MessageBox(_T((s)));
 
 	//THIS IS NOT WORKING CURRENTLY!! CString newCS = s.c_str();
@@ -182,7 +182,7 @@ void Cform_testView::OnFileOpen()
 	masterList=parse(masterList,labels, s);
 		Person *guy = new Person;
 	
-		//addLabelDefaults(masterList, labels);
+		addLabelDefaults(masterList, labels);
 
 
 	//CString first = strToCStr(labels->at(0));
