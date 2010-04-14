@@ -1,0 +1,29 @@
+Actor
+Astronaut
+Businessman
+Composer
+Physicist
+Prime Minister
+TV Host
+Writer
+Ludwig#Beethoven##Composer#A composer and pianist between Classical and Romantic eras in Western classical music#Composer
+Roberta#Bondar##Astronaut#Canada's  first female astronaut and the first neurologist in space. Following more than a decade as NASA's head of space medicine, Bondar became a consultant and speaker in the business, scientific and medical communities#Astronaut
+Sir Winston#Churchill##Prime Minister#A politician known chiefly for his leadership of the United Kingdom during World War II#Prime Minister
+Samuel#Clemens##Writer#Well-known by his pen name Mark Twain, was an author and humorist#Writer
+The Adventures of Tom Sawyer
+The Prince and the Pauper
+Adventures of Huckleberry Finn
+Albert#Einstein##Physicist#Widely regarded as one of the most influential and best known scientists and intellectuals of all time#Physicist
+Theodor#Geisel##Writer#Writer and cartoonist most widely known for his children's books written under the pen name  Dr. Seuss#Writer
+Green Eggs and Ham
+The Cat in the Hat
+One Fist Tow Fish Red Fist Blue Fish
+The Seven Lady Godivas
+Oh, The Places You'll Go!
+Steven#Jobs##Businessman#Co-founder and chief executive officer of Apple. Jobs also previously served as chief executive of Pixar Animation Studios; he became a member of the board of The Walt Disney Company in 2006, following the acquisition of Pixar by Disney#Businessman
+Janet#Lunn##Writer#Childrens writer, Was made a Member of the Order of Canada in 1997#Writer
+The Root Cellar
+The Hollow Tree
+Fred#Rogers##TV Host#Educator, Presbyterian minister, songwriter, and television host. Rogers was the host of the television  show Mister Rogers' Neighborhood, in production from 1968 to 2001#TV Host
+Robin#Williams##Actor#Rising to fame with his role as the alien Mork in the TV series Mork and Mindy, and later stand up comedy work, Williams has performed in many feature films since 1980#Actor
+
