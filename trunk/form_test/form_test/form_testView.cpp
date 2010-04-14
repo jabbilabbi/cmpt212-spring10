@@ -98,6 +98,22 @@ void Cform_testView::OnAddPeople()
 	 testDlg.DoModal();
 }
 
+CString strToCStr(string s){
+	CString cstring;
+	for (int i = 0; i<s.length(); i++){
+		cstring += s[i];
+	}
+	return cstring;
+}
+
+string cStrToStr(CString cs){
+	string s;
+	for (int i = 0; i<cs.GetLength(); i++){
+		s += cs.GetAt(i);
+	}
+	return s;
+}
+
 void Cform_testView::OnFileSave()
 {
 		// TODO: Add your control notification handler code here
@@ -110,17 +126,12 @@ void Cform_testView::OnFileSave()
 
 	set<PLData> *masterList = new set<PLData>;
 	vector<string> *labels = new vector<string>;
+
     CString fname = FileDlg.GetFileName();
-	string s;
-	for (int i = 0; i<fname.GetLength(); i++){
-		s+=fname.GetAt(i);
-	}
+	string s =cStrToStr(fname);
 	//const char* s1 = s.c_str();
 	//MessageBox(_T((s)));
 	masterList=parse(masterList,labels, s);
-	CString first;
-	for (int i = 0; i<labels->at(0).length(); i++){
-		first += labels->at(0)[i];
-	}
+	CString first = strToCStr(labels->at(0));
 	MessageBox(first);
 }
