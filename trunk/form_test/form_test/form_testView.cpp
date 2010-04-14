@@ -17,6 +17,8 @@
 using namespace std;
 set<PLData> *parse(set<PLData> *dictionary,  vector<string> *labelList, string fileName);
 // Cform_testView
+set<PLData> *masterList = new set<PLData>;
+vector<string> *labels = new vector<string>;
 
 IMPLEMENT_DYNCREATE(Cform_testView, CFormView)
 
@@ -89,7 +91,20 @@ Cform_testDoc* Cform_testView::GetDocument() const // non-debug version is inlin
 
 void Cform_testView::OnLbnSelchangeList1()
 {
-	// TODO: Add your control notification handler code here
+	int index;
+	CString strText;
+	index = m_label_listbox.GetCurSel();
+	m_label_listbox.GetText(index, strText);
+	
+	set<PLData>::iterator iter;
+	
+	for(iter = masterList->begin(); iter != masterList->end(); iter++){
+		for (int i =0; i<iter->labels.size(); i++){
+			if (iter->labels.at(i).compare(cStrToStr(strText))){
+
+			}
+		}
+	}
 }
 
 void Cform_testView::OnAddPeople()
@@ -124,14 +139,14 @@ void Cform_testView::OnFileSave()
 	CFileDialog FileDlg(FALSE, _T(".txt"), NULL, 0, _T("Text Files (*.txt)|*.txt|All Files (*.*)|*.*||"));
 	FileDlg.DoModal();
 
-	set<PLData> *masterList = new set<PLData>;
-	vector<string> *labels = new vector<string>;
-
     CString fname = FileDlg.GetFileName();
 	string s =cStrToStr(fname);
 	//const char* s1 = s.c_str();
 	//MessageBox(_T((s)));
 	masterList=parse(masterList,labels, s);
 	CString first = strToCStr(labels->at(0));
-	MessageBox(first);
+	//MessageBox(first);
+	for (int i =0; i<labels->size(); i++){
+		m_label_listbox.AddString(strToCStr(labels->at(i)));
+	}
 }
