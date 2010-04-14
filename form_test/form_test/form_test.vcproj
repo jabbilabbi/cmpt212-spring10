@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8.00"
-	Name="form_test"
+	Name="Biographical Dictionary"
 	ProjectGUID="{8A44A5BF-AC4F-471A-9046-ACD175A2C7FC}"
-	RootNamespace="form_test"
+	RootNamespace="Biographical Dictionary"
 	Keyword="MFCProj"
 	>
 	<Platforms>
