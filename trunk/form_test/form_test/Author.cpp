@@ -15,9 +15,11 @@ string Author::listBooks(int index)
 {
 	/* returns a string of all books associated with this author */
 	if(bookList.size() <= index)
-		return "\b\b.";
+		return ".";
+	else if(index == 0)
+		return bookList[index]+listBooks(index+1);
 	else
-		return bookList[index]+", "+listBooks(index+1);
+		return ", "+bookList[index]+listBooks(index+1);
 		
 	return "";
 }
