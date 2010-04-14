@@ -18,6 +18,11 @@
 #define IDC_LIST2                       1006
 #define IDC_EDIT5                       1007
 #define IDC_EDIT6                       1008
+#define ID_ADD                          1009
+#define IDC_BUTTON2                     1011
+#define IDC_BUTTON3                     1012
+#define IDC_BUTTON1                     1013
+#define IDC_BUTTON7                     1013
 #define ID_Menu                         32771
 #define ID_DELETE_PEOPLE                32772
 #define ID_EDIT_PEOPLE                  32773
@@ -36,7 +41,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        133
 #define _APS_NEXT_COMMAND_VALUE         32782
-#define _APS_NEXT_CONTROL_VALUE         1007
+#define _APS_NEXT_CONTROL_VALUE         1014
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
