@@ -9,6 +9,7 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <sstream>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -41,10 +42,27 @@ Cform_testView::~Cform_testView()
 {
 }
 
+CString strToCStr(string s){
+	CString cstring;
+	for (int i = 0; i<s.length(); i++){
+		cstring += s[i];
+	}
+	return cstring;
+}
+
+string cStrToStr(CString cs){
+	string s;
+	for (int i = 0; i<cs.GetLength(); i++){
+		s += cs.GetAt(i);
+	}
+	return s;
+}
+
 void Cform_testView::DoDataExchange(CDataExchange* pDX)
 {
 	CFormView::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST1, m_label_listbox);
+	DDX_Control(pDX, IDC_LIST2, m_person_listbox);
 }
 
 BOOL Cform_testView::PreCreateWindow(CREATESTRUCT& cs)
@@ -99,9 +117,19 @@ void Cform_testView::OnLbnSelchangeList1()
 	set<PLData>::iterator iter;
 	
 	for(iter = masterList->begin(); iter != masterList->end(); iter++){
-		for (int i =0; i<iter->labels.size(); i++){
-			if (iter->labels.at(i).compare(cStrToStr(strText))){
+		
+		string s;
+		stringstream out;
+		out << iter->labels.size();
+		s = out.str();
 
+		MessageBox(strToCStr(s));
+		for (int i =0; i < iter->labels.size(); i++){
+			if (iter->labels.at(i).compare(cStrToStr(strText)) == 0){
+				m_person_listbox.AddString(strToCStr(iter->person->getFirstName() + " " + iter->person->getLastName()));
+					MessageBox(_T("hi"));
+			} else {
+MessageBox(_T("hi"));
 			}
 		}
 	}
@@ -113,21 +141,7 @@ void Cform_testView::OnAddPeople()
 	 testDlg.DoModal();
 }
 
-CString strToCStr(string s){
-	CString cstring;
-	for (int i = 0; i<s.length(); i++){
-		cstring += s[i];
-	}
-	return cstring;
-}
 
-string cStrToStr(CString cs){
-	string s;
-	for (int i = 0; i<cs.GetLength(); i++){
-		s += cs.GetAt(i);
-	}
-	return s;
-}
 
 void Cform_testView::OnFileSave()
 {

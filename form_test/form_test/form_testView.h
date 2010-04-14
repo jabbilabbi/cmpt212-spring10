@@ -50,6 +50,8 @@ public:
 	afx_msg void OnAddPeople();
 public:
 	afx_msg void OnFileSave();
+public:
+	CListBox m_person_listbox;
 };
 
 #ifndef _DEBUG  // debug version in form_testView.cpp
