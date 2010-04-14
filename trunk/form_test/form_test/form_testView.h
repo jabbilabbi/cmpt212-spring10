@@ -62,6 +62,7 @@ public:
 	afx_msg void OnBnClickedButton2();
 public:
 	afx_msg void OnBnClickedButton7();
+	afx_msg void OnLbnDblclkList2();
 };
 
 #ifndef _DEBUG  // debug version in form_testView.cpp

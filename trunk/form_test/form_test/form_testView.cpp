@@ -33,6 +33,7 @@ BEGIN_MESSAGE_MAP(Cform_testView, CFormView)
 	ON_BN_CLICKED(IDOK, &Cform_testView::OnBnClickedOk)
 	ON_BN_CLICKED(IDC_BUTTON2, &Cform_testView::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON7, &Cform_testView::OnBnClickedButton7)
+	ON_LBN_DBLCLK(IDC_LIST2, &Cform_testView::OnLbnDblclkList2)
 END_MESSAGE_MAP()
 
 // Cform_testView construction/destruction
@@ -214,4 +215,21 @@ void Cform_testView::OnBnClickedButton2()
 void Cform_testView::OnBnClickedButton7()
 {
 	MessageBox(_T("hi"));
+}
+
+void Cform_testView::OnLbnDblclkList2()
+{
+	//m_person_listbox
+	int index;
+	CString strText;
+	index = m_person_listbox.GetCurSel();
+	m_person_listbox.GetText(index, strText);
+	set<PLData>::iterator iter;
+
+	for(iter = masterList->begin(); iter != masterList->end(); iter++){
+		if((iter->person->getFirstName()+" "+iter->person->getLastName()).compare(cStrToStr(strText)) == 0)
+		MessageBox(strToCStr(iter->person->display()));
+	}
+	
+	// TODO: Add your control notification handler code here
 }
