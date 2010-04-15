@@ -119,6 +119,7 @@ BEGIN
         MENUITEM "&New",                        ID_NEW_LABEL
         MENUITEM "&Add",                        ID_ADD_LABEL
         MENUITEM "&Remove",                     ID_REMOVE_LABEL
+        MENUITEM "Make Default Labels",         ID_LABELS_MAKEDEFAULTLABELS
     END
     POPUP "&Author"
     BEGIN

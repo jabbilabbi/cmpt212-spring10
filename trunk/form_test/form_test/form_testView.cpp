@@ -34,6 +34,7 @@ BEGIN_MESSAGE_MAP(Cform_testView, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON2, &Cform_testView::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON7, &Cform_testView::OnBnClickedButton7)
 	ON_LBN_DBLCLK(IDC_LIST2, &Cform_testView::OnLbnDblclkList2)
+	ON_COMMAND(ID_LABELS_MAKEDEFAULTLABELS, &Cform_testView::OnLabelsMakedefaultlabels)
 END_MESSAGE_MAP()
 
 // Cform_testView construction/destruction
@@ -181,11 +182,12 @@ void Cform_testView::OnFileOpen()
 		masterList=parse(masterList,labels, s);
 			Person *guy = new Person;
 		
-			addLabelDefaults(masterList, labels);
+			//addLabelDefaults(masterList, labels);
 
 
 		//CString first = strToCStr(labels->at(0));
 		//MessageBox(first);
+		m_label_listbox.ResetContent();
 		m_label_listbox.AddString(strToCStr("ALL"));
 		for (int i =0; i<labels->size(); i++){
 			m_label_listbox.AddString(strToCStr(labels->at(i)));
@@ -233,4 +235,15 @@ void Cform_testView::OnLbnDblclkList2()
 		}
 	}
 	
+}
+
+void Cform_testView::OnLabelsMakedefaultlabels()
+{
+	addLabelDefaults(masterList, labels);
+	m_label_listbox.ResetContent();
+		m_label_listbox.AddString(strToCStr("ALL"));
+		for (int i =0; i<labels->size(); i++){
+			m_label_listbox.AddString(strToCStr(labels->at(i)));
+		}
+	// TODO: Add your command handler code here
 }
