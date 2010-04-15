@@ -242,8 +242,11 @@ bool saveFile(set<PLData> *dictionary, vector<string> *labelList, string fileNam
 
 	set<PLData>::iterator iter;
 
-	
+	bool first = true;
 	for(iter = dictionary->begin(); iter != dictionary->end(); iter++){
+		if(!first)
+			file<<endl;
+		first = false; //has run once
 		string line;
 		line+= iter->person->getFirstName() + "#";
 		line+= iter->person->getLastName() + "#";
@@ -256,15 +259,16 @@ bool saveFile(set<PLData> *dictionary, vector<string> *labelList, string fileNam
 		line+= iter->person->getBiography();
 		for(int i = 0; i < iter->labels.size(); i++)
 			line += "#" + iter->labels[i];
-		file<<line<<endl;
+		file<<line;
+		
 		if(iter->person->author()){
 			Author *newAuth;
 			newAuth = (Author*)iter->person;
 			for(int i = 0; i < newAuth->getBooks().size(); i++)
-				file<<newAuth->getBooks()[i]<<endl;
+				file<<endl<<newAuth->getBooks()[i];
 		}
 	}
-
+	
 	closeFile(&file);
 
 	return true; //If this point reached, save was successful.
