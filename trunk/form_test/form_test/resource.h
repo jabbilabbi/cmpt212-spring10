@@ -35,13 +35,14 @@
 #define ID_AUTHOR_REMOVEBOOK            32780
 #define ID_REMOVEBOOK_AUTHOR            32781
 #define ID_LABELS_MAKEDEFAULTLABELS     32782
+#define ID_FILE_NEW32783                32783
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        133
-#define _APS_NEXT_COMMAND_VALUE         32783
+#define _APS_NEXT_COMMAND_VALUE         32784
 #define _APS_NEXT_CONTROL_VALUE         1014
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
