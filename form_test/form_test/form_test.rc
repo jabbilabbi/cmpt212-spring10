@@ -307,12 +307,12 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDR_MAINFRAME           "form_test\n\nform_test\n\n\nformtest.Document\nform_test.Document"
+    IDR_MAINFRAME           "CMPT 212"
 END
 
 STRINGTABLE 
 BEGIN
-    AFX_IDS_APP_TITLE       "form_test"
+    AFX_IDS_APP_TITLE       "Biographical Dictionary"
     AFX_IDS_IDLEMESSAGE     "Ready"
 END
 
