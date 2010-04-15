@@ -175,7 +175,7 @@ void Cform_testView::OnFileOpen()
 	string s =cStrToStr(fname);
 	const char* s1 = s.c_str();
 
-	MessageBox(fname);
+	
 
 	if(s.length() > 0){ //Doesnt open the file if no name given
 		masterList=parse(masterList,labels, s);
@@ -223,13 +223,14 @@ void Cform_testView::OnLbnDblclkList2()
 	int index;
 	CString strText;
 	index = m_person_listbox.GetCurSel();
-	m_person_listbox.GetText(index, strText);
-	set<PLData>::iterator iter;
+	if(index >= 0){ //Only do something if it was actually selected
+		m_person_listbox.GetText(index, strText);
+		set<PLData>::iterator iter;
 
-	for(iter = masterList->begin(); iter != masterList->end(); iter++){
-		if((iter->person->getFirstName()+" "+iter->person->getLastName()).compare(cStrToStr(strText)) == 0)
-		MessageBox(strToCStr(iter->person->display()));
+		for(iter = masterList->begin(); iter != masterList->end(); iter++){
+			if((iter->person->getFirstName()+" "+iter->person->getLastName()).compare(cStrToStr(strText)) == 0)
+			MessageBox(strToCStr(iter->person->display()));
+		}
 	}
 	
-	// TODO: Add your control notification handler code here
 }
