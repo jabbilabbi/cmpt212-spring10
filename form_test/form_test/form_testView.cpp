@@ -174,22 +174,22 @@ void Cform_testView::OnFileOpen()
     fname = FileDlg.GetFileName();
 	string s =cStrToStr(fname);
 	const char* s1 = s.c_str();
-	//MessageBox(_T((s)));
 
-	//THIS IS NOT WORKING CURRENTLY!! CString newCS = s.c_str();
-//masterList = new set<PLData>;
-//labels = new vector<string>;
-	masterList=parse(masterList,labels, s);
-		Person *guy = new Person;
-	
-		addLabelDefaults(masterList, labels);
+	MessageBox(fname);
+
+	if(s.length() > 0){ //Doesnt open the file if no name given
+		masterList=parse(masterList,labels, s);
+			Person *guy = new Person;
+		
+			addLabelDefaults(masterList, labels);
 
 
-	//CString first = strToCStr(labels->at(0));
-	//MessageBox(first);
-	m_label_listbox.AddString(strToCStr("ALL"));
-	for (int i =0; i<labels->size(); i++){
-		m_label_listbox.AddString(strToCStr(labels->at(i)));
+		//CString first = strToCStr(labels->at(0));
+		//MessageBox(first);
+		m_label_listbox.AddString(strToCStr("ALL"));
+		for (int i =0; i<labels->size(); i++){
+			m_label_listbox.AddString(strToCStr(labels->at(i)));
+		}
 	}
 }
 
