@@ -35,6 +35,7 @@ BEGIN_MESSAGE_MAP(Cform_testView, CFormView)
 	ON_BN_CLICKED(IDC_BUTTON7, &Cform_testView::OnBnClickedButton7)
 	ON_LBN_DBLCLK(IDC_LIST2, &Cform_testView::OnLbnDblclkList2)
 	ON_COMMAND(ID_LABELS_MAKEDEFAULTLABELS, &Cform_testView::OnLabelsMakedefaultlabels)
+	ON_COMMAND(ID_FILE_NEW, &Cform_testView::OnFileNew)
 END_MESSAGE_MAP()
 
 // Cform_testView construction/destruction
@@ -245,5 +246,14 @@ void Cform_testView::OnLabelsMakedefaultlabels()
 		for (int i =0; i<labels->size(); i++){
 			m_label_listbox.AddString(strToCStr(labels->at(i)));
 		}
+	// TODO: Add your command handler code here
+}
+
+void Cform_testView::OnFileNew()
+{
+	masterList = new set<PLData>;
+	labels = new vector<string>;
+	m_label_listbox.ResetContent();
+	m_person_listbox.ResetContent();
 	// TODO: Add your command handler code here
 }

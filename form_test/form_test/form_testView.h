@@ -64,6 +64,7 @@ public:
 	afx_msg void OnBnClickedButton7();
 	afx_msg void OnLbnDblclkList2();
 	afx_msg void OnLabelsMakedefaultlabels();
+	afx_msg void OnFileNew();
 };
 
 #ifndef _DEBUG  // debug version in form_testView.cpp
